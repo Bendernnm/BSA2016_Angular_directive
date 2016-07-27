@@ -1,0 +1,41 @@
+<div>
+    <form name="EditForm" ng-if="people.isEdit">
+        First name: <input type="text" name="EditFirstName" ng-model="people.editFirstName" ng-pattern="/^[a-zA-z]{2,16}$/"/>
+        Last name: <input type="text" name="EditLastName" ng-model="people.editLastName" ng-pattern="/^[a-zA-z]{2,16}$/"/>
+        E-mail: <input type="email" name="EditEMail" ng-model="people.editEMail"/>
+        <button class="glyphicon glyphicon-ok" style="color: #00b3ee" ng-click="people.editOk()"></button>
+        <button class="glyphicon glyphicon-remove" style="color: #00b3ee" ng-click="people.editCancel()"></button>
+        <br>
+        <br>
+        <p ng-show="EditForm.EditEMail.$invalid">E-mail not valid!</p>
+        <p ng-show="EditForm.EditFirstName.$error.pattern">Write your first name!</p>
+        <p ng-show="EditForm.EditLastName.$error.pattern">Write your last name!</p>
+    </form>
+
+    <br>
+
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>#</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>E-mail</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="guy in people.allPeople track by $index">
+            <td>{{$index}}</td>
+            <td>{{guy.firstName}}</td>
+            <td>{{guy.lastName}}</td>
+            <td>{{guy.eMail}}</td>
+            <td align="center">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"
+                      style="color: #00b3ee" ng-click="people.edit($event, $index)"></span>
+            </td>
+            <td align="center">
+                <span class="glyphicon glyphicon-minus" aria-hidden="true"
+                      style="color: #00b3ee" ng-click="people.remove($event, $index)"></span>
+            </td>
+        </tr>
+    </table>
+</div>

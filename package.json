@@ -1,0 +1,16 @@
+{
+  "name": "bsa2016_angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bender <bender.d1mon@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.2.4",
+    "path": "^0.12.7"
+  }
+}
